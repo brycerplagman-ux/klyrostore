@@ -53,13 +53,13 @@ const CART_LINES_REMOVE_MUTATION = `
 function formatCheckoutUrl(url: string): string {
   try {
     const u = new URL(url);
+    u.hostname = "eyvehx-w1.myshopify.com";
     u.searchParams.set("channel", "online_store");
     return u.toString();
   } catch {
     return url;
   }
 }
-
 function isCartNotFoundError(errors: Array<{ message: string }>): boolean {
   return errors.some((e) => /cart not found|does not exist/i.test(e.message));
 }
